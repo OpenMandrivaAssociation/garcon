@@ -6,13 +6,14 @@
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
 Version:	0.1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/libs/garcon/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
 BuildRequires:	glib2-devel
+Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -23,6 +24,7 @@ legacy menus.
 
 %package -n %{libname}
 Summary:	A freedesktop.org menu implementation
+Requires:	%{name} = %{version}-%{release}
 Group:		System/Libraries
 
 %description -n %{libname}
