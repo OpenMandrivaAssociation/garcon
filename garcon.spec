@@ -6,7 +6,7 @@
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
 Version:	0.1.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
@@ -26,6 +26,7 @@ legacy menus.
 Summary:	A freedesktop.org menu implementation
 Requires:	%{name} = %{version}-%{release}
 Group:		System/Libraries
+Obsoletes:	%{mklibname xfce4menu 0.1 0} <= 4.6.2
 
 %description -n %{libname}
 Garcon is an implementation of the freedesktop.org menu specification
