@@ -13,6 +13,7 @@ Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/libs/garcon/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
 BuildRequires:	glib2-devel
+BuildRequires:	libxfce4util-devel >= 4.8.0
 Requires:	%{libname} = %{version}-%{release}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
