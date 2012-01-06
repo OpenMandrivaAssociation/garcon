@@ -6,7 +6,7 @@
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
 Version:	0.1.9
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
@@ -48,7 +48,8 @@ Development files and headers for %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-static
 
 %make
 
@@ -60,7 +61,11 @@ Development files and headers for %{name}.
 # (tpg) this file is in mandriva-xfce-config package
 rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
-%find_lang %{name}
+# (tpg) drop libtool files
+rm -f %{buildroot}%{_libdir}/*.la
+rm -f %{buildroot}%{_libdir}/*.a
+
+%find_lang %{name} %{name}.lang
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
@@ -77,8 +82,6 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog HACKING NEWS README STATUS TODO
 %{_includedir}/%{name}*
-%{_libdir}/*%{name}*.la
 %{_libdir}/*%{name}*.so
-%{_libdir}/*%{name}*.a
 %{_libdir}/pkgconfig/%{name}-*.pc
 %{_datadir}/gtk-doc/html/%{name}
