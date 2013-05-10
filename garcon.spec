@@ -5,15 +5,15 @@
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	0.2.0
-Release:	3
+Version:	0.2.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/libs/garcon/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
-BuildRequires:	glib2-devel
-BuildRequires:	libxfce4util-devel >= 4.10.0
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.10.1
 Requires:	%{libname} = %{version}-%{release}
 
 %description
@@ -56,13 +56,13 @@ Development files and headers for %{name}.
 %makeinstall_std
 
 # (tpg) this file is in mandriva-xfce-config package
-#rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
+rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
 %find_lang %{name} %{name}.lang
 
 %files -f %{name}.lang
 %{_datadir}/desktop-directories/xfce-*.directory
-%{_sysconfdir}/xdg/menus/xfce-applications.menu
+#%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
 %files -n %{libname}
 %{_libdir}/*%{name}*.so.%{major}*
