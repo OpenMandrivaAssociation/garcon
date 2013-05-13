@@ -1,5 +1,6 @@
 %define major 0
-%define libname %mklibname %{name} %{major}
+%define api 1
+%define libname %mklibname %{name}- %{api} %{major}
 %define develname %mklibname %{name} -d
 %define url_ver %(echo %{version} | cut -c 1-3)
 
@@ -27,6 +28,7 @@ Summary:	A freedesktop.org menu implementation
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
 Obsoletes:	%{mklibname xfce4menu 0.1 0} <= 4.6.2
+Obsoletes:	%{mklibname garcon 0} < 0.2.1
 
 %description -n %{libname}
 Garcon is an implementation of the freedesktop.org menu specification
@@ -65,7 +67,7 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 #%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
 %files -n %{libname}
-%{_libdir}/*%{name}*.so.%{major}*
+%{_libdir}/*%{name}-%{api}.so.%{major}*
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog HACKING NEWS README STATUS TODO
