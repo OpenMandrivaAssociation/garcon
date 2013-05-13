@@ -25,7 +25,7 @@ legacy menus.
 %package -n %{libname}
 Summary:	A freedesktop.org menu implementation
 Group:		System/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{EVRD}
 Obsoletes:	%{mklibname xfce4menu 0.1 0} <= 4.6.2
 
 %description -n %{libname}
@@ -37,8 +37,8 @@ legacy menus.
 %package -n %{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
+Provides:	lib%{name}-devel = %{EVRD}
 
 %description -n %{develname}
 Development files and headers for %{name}.
