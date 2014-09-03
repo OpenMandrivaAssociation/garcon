@@ -16,6 +16,7 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.11.0
+BuildRequires:	pkgconfig(libxfce4ui-1)
 Requires:	%{libname} = %{version}-%{release}
 
 %description
