@@ -1,6 +1,7 @@
 %define major 0
 %define api 1
 %define libname %mklibname %{name}- %{api} %{major}
+%define gtklibname %mklibname %{name}-gtk2_ %{api} %{major}
 %define develname %mklibname %{name} -d
 %define url_ver %(echo %{version} | cut -c 1-3)
 
@@ -38,6 +39,17 @@ replacing the former Xfce menu library libxfce4menu. It is based on
 GLib/GIO only and aims at covering the entire specification except for
 legacy menus.
 
+%package -n %{gtklibname}
+Summary:	Common GTK library for Xfce's freedesktop.org menu implementation
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
+ 	
+%description -n %{gtklibname}
+Garcon is an implementation of the freedesktop.org menu specification
+replacing the former Xfce menu library libxfce4menu. It is based on
+GLib/GIO only and aims at covering the entire specification except for
+legacy menus.
+
 %package -n %{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
@@ -70,6 +82,9 @@ rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
 %files -n %{libname}
 %{_libdir}/*%{name}-%{api}.so.%{major}*
+
+%files -n %{gtklibname}
+%{_libdir}/lib%{name}-gtk2-%{api}.so.%{major}*
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog HACKING NEWS README STATUS TODO
