@@ -54,6 +54,7 @@ legacy menus.
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
+Requires:	%{gtklibname} = %{EVRD}
 Provides:	lib%{name}-devel = %{EVRD}
 
 %description -n %{develname}
