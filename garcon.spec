@@ -8,7 +8,7 @@
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
@@ -54,6 +54,7 @@ legacy menus.
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
+Requires:	%{gtklibname} = %{EVRD}
 Provides:	lib%{name}-devel = %{EVRD}
 
 %description -n %{develname}
