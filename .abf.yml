@@ -1,4 +1,3 @@
-removed_sources:
-  garcon-0.2.1.tar.bz2: 5328851ce29927a874a1cd50c09dd124a5e45272
+---
 sources:
-  garcon-0.3.0.tar.bz2: c0ff6ccd33fbb2db6a13a06a71731c191ce0dfb2
+  garcon-0.4.0.tar.bz2: 9978c7f3181f7d8fd930cce74293d2a360743182

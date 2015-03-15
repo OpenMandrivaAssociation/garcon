@@ -7,8 +7,8 @@
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	0.3.0
-Release:	1
+Version:	0.4.0
+Release:	0.1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
@@ -16,8 +16,8 @@ Source0:	http://archive.xfce.org/src/libs/garcon/%{url_ver}/%{name}-%{version}.t
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
-BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.11.0
-BuildRequires:	pkgconfig(libxfce4ui-1)
+BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.12.0
+BuildRequires:	pkgconfig(libxfce4ui-1) >= 4.12.0
 Requires:	%{libname} = %{version}-%{release}
 
 %description
@@ -64,7 +64,7 @@ Development files and headers for %{name}.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 
 %make
