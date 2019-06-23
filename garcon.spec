@@ -10,18 +10,22 @@
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
 Version:	0.6.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
 Source0:	https://archive.xfce.org/src/libs/garcon/0.6/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
+BuildRequires:	gtk-doc
+BuildRequires:	gtk-doc-mkpdf
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
-BuildRequires:	pkgconfig(libxfce4util-1.0) >= 4.12.0
-BuildRequires:	pkgconfig(libxfce4ui-1) >= 4.12.0
+BuildRequires:	pkgconfig(libxfce4util-1.0)
+BuildRequires:	pkgconfig(libxfce4ui-1)
 BuildRequires:	pkgconfig(libxfce4ui-2)
+BuildRequires:  xfce4-dev-tools
+
 Requires:	%{libname} = %{version}-%{release}
 
 %description
@@ -29,6 +33,12 @@ Garcon is an implementation of the freedesktop.org menu specification
 replacing the former Xfce menu library libxfce4menu. It is based on
 GLib/GIO only and aims at covering the entire specification except for
 legacy menus.
+
+%files -f %{name}.lang
+%{_datadir}/desktop-directories/xfce-*.directory
+#%{_sysconfdir}/xdg/menus/xfce-applications.menu
+
+#---------------------------------------------------------------------------
 
 %package -n %{libname}
 Summary:	A freedesktop.org menu implementation
@@ -43,16 +53,26 @@ replacing the former Xfce menu library libxfce4menu. It is based on
 GLib/GIO only and aims at covering the entire specification except for
 legacy menus.
 
+%files -n %{libname}
+%{_libdir}/*%{name}-%{api}.so.%{major}*
+
+#---------------------------------------------------------------------------
+
 %package -n %{gtklibname}
 Summary:	Common GTK library for Xfce's freedesktop.org menu implementation
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
- 	
+
 %description -n %{gtklibname}
 Garcon is an implementation of the freedesktop.org menu specification
 replacing the former Xfce menu library libxfce4menu. It is based on
 GLib/GIO only and aims at covering the entire specification except for
 legacy menus.
+
+%files -n %{gtklibname}
+%{_libdir}/lib%{name}-gtk2-%{api}.so.%{major}*
+
+#---------------------------------------------------------------------------
 
 %package -n %{gtk3libname}
 Summary:        Common GTK library for Xfce's freedesktop.org menu implementation
@@ -65,6 +85,11 @@ replacing the former Xfce menu library libxfce4menu. It is based on
 GLib/GIO only and aims at covering the entire specification except for
 legacy menus
 
+%files -n %{gtk3libname}
+%{_libdir}/lib%{name}-gtk3-%{api}.so.%{major}*
+
+#---------------------------------------------------------------------------
+
 %package -n %{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
@@ -76,39 +101,28 @@ Provides:	lib%{name}-devel = %{EVRD}
 %description -n %{develname}
 Development files and headers for %{name}.
 
-%prep
-%setup -q
-
-%build
-%configure \
-	--disable-static
-
-%make
-
-%install
-%makeinstall_std
-
-# (tpg) this file is in mandriva-xfce-config package
-rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
-
-%find_lang %{name} %{name}.lang
-
-%files -f %{name}.lang
-%{_datadir}/desktop-directories/xfce-*.directory
-#%{_sysconfdir}/xdg/menus/xfce-applications.menu
-
-%files -n %{libname}
-%{_libdir}/*%{name}-%{api}.so.%{major}*
-
-%files -n %{gtklibname}
-%{_libdir}/lib%{name}-gtk2-%{api}.so.%{major}*
-
-%files -n %{gtk3libname}
-%{_libdir}/lib%{name}-gtk3-%{api}.so.%{major}*
-
 %files -n %{develname}
 %doc AUTHORS ChangeLog HACKING NEWS README STATUS TODO
 %{_includedir}/%{name}*
 %{_libdir}/*%{name}*.so
 %{_libdir}/pkgconfig/%{name}-*.pc
 %{_datadir}/gtk-doc/html/%{name}
+
+#---------------------------------------------------------------------------
+
+%prep
+%setup -q
+%autopatch -p1
+
+%build
+%configure
+%make_build
+
+%install
+%make_install
+
+# (tpg) this file is in mandriva-xfce-config package
+rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
+
+# locales
+%find_lang %{name} %{name}.lang
