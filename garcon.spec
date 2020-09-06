@@ -9,12 +9,12 @@
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	0.7.0
+Version:	0.7.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
-Source0:	https://archive.xfce.org/src/libs/garcon/0.6/%{name}-%{version}.tar.bz2
+Source0:	https://archive.xfce.org/src/xfce/garcon/0.7/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
 BuildRequires:	gtk-doc
 BuildRequires:	gtk-doc-mkpdf
