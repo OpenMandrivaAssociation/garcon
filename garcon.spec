@@ -82,7 +82,7 @@ Provides:	lib%{name}-devel = %{EVRD}
 Development files and headers for %{name}.
 
 %files -n %{develname}
-%doc AUTHORS ChangeLog HACKING NEWS README STATUS TODO
+%doc AUTHORS ChangeLog HACKING NEWS README* STATUS TODO
 %{_includedir}/%{name}*
 %{_libdir}/*%{name}*.so
 %{_libdir}/pkgconfig/%{name}-*.pc
