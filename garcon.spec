@@ -1,7 +1,7 @@
 %define major 0
 %define api 1
 %define libname %mklibname %{name}- %{api} %{major}
-%define gtk3libname %mklibname %{name}-gtk3_ %{api} %{major}
+%define gtklibname %mklibname %{name}-gtk3_ %{api} %{major}
 %define develname %mklibname %{name} -d
 %define url_ver %(echo %{version} | cut -c 1-3)
 %define _disable_rebuild_configure 1
@@ -67,7 +67,7 @@ GLib/GIO only and aims at covering the entire specification except for
 legacy menus.
 
 %files -n %{gtklibname}
-%{_libdir}/lib%{name}-gtk2-%{api}.so.%{major}*
+%{_libdir}/lib%{name}-gtk3-%{api}.so.%{major}*
 
 #---------------------------------------------------------------------------
 
@@ -76,7 +76,6 @@ Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
 Requires:	%{gtklibname} = %{EVRD}
-Requires:	%{gtk3libname} = %{EVRD}
 Provides:	lib%{name}-devel = %{EVRD}
 
 %description -n %{develname}
