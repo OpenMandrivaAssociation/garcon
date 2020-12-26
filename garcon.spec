@@ -34,6 +34,7 @@ legacy menus.
 %files -f %{name}.lang
 %{_datadir}/desktop-directories/xfce-*.directory
 #%{_sysconfdir}/xdg/menus/xfce-applications.menu
+%{_iconsdir}/hicolor/*/apps/org.xfce.garcon.png
 
 #---------------------------------------------------------------------------
 
