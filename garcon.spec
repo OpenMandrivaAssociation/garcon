@@ -8,7 +8,7 @@
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	4.16.1
+Version:	4.17.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -83,7 +83,7 @@ Provides:	lib%{name}-devel = %{EVRD}
 Development files and headers for %{name}.
 
 %files -n %{develname}
-%doc AUTHORS ChangeLog HACKING NEWS README* STATUS TODO
+%doc AUTHORS NEWS README*
 %{_includedir}/%{name}*
 %{_libdir}/*%{name}*.so
 %{_libdir}/pkgconfig/%{name}-*.pc
@@ -103,7 +103,7 @@ Development files and headers for %{name}.
 %make_install
 
 # (tpg) this file is in mandriva-xfce-config package
-rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
+#rm -rf %{buildroot}%{_sysconfdir}/xdg/menus/xfce-applications.menu
 
 # locales
 %find_lang %{name} %{name}.lang
