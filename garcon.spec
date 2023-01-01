@@ -13,7 +13,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		http://www.xfce.org
-Source0:	https://archive.xfce.org/src/xfce/garcon/0.7/%{name}-%{version}.tar.bz2
+Source0:	https://archive.xfce.org/src/xfce/garcon/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
 BuildRequires:	gtk-doc
 BuildRequires:	gtk-doc-mkpdf
