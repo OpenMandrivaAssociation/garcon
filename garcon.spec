@@ -8,7 +8,7 @@
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	4.18.0
+Version:	4.18.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
