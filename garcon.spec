@@ -12,7 +12,7 @@ Version:	4.18.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
-Url:		http://www.xfce.org
+Url:		https://www.xfce.org
 Source0:	https://archive.xfce.org/src/xfce/garcon/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.bz2
 BuildRequires:	intltool
 BuildRequires:	gtk-doc
