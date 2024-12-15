@@ -1,14 +1,16 @@
 %define major 0
 %define api 1
-%define libname %mklibname %{name}- %{api} %{major}
-%define gtklibname %mklibname %{name}-gtk3_ %{api} %{major}
+%define libname %mklibname %{name}
+%define oldlibname %mklibname %{name}- 1 0
+%define gtklibname %mklibname %{name}-gtk3
+%define oldgtklibname %mklibname %{name}-gtk3_ 1 0
 %define develname %mklibname %{name} -d
 %define url_ver %(echo %{version} | cut -c 1-3)
 %define _disable_rebuild_configure 1
 
 Summary:	A freedesktop.org menu implementation
 Name:		garcon
-Version:	4.18.2
+Version:	4.20.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -44,6 +46,7 @@ Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
 Obsoletes:	%{mklibname xfce4menu 0.1 0} <= 4.6.2
 Obsoletes:	%{mklibname garcon 0} < 0.2.1
+%rename %{oldlibname}
 
 %description -n %{libname}
 Garcon is an implementation of the freedesktop.org menu specification
@@ -60,6 +63,7 @@ legacy menus.
 Summary:	Common GTK library for Xfce's freedesktop.org menu implementation
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
+%rename %{oldgtklibname}
 
 %description -n %{gtklibname}
 Garcon is an implementation of the freedesktop.org menu specification
@@ -92,8 +96,7 @@ Development files and headers for %{name}.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %configure
