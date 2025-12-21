@@ -16,6 +16,11 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 Url:		https://www.xfce.org
 Source0:	https://archive.xfce.org/src/xfce/garcon/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool
 BuildRequires:	gtk-doc
 BuildRequires:	gtk-doc-mkpdf
